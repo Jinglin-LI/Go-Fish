@@ -63,6 +63,7 @@ func (d deck) shuffle() {
 	// https://golang.org/pkg/math/rand/#Source
 	// https://golang.org/pkg/time/#Time.UnixNano
 	source := rand.NewSource(time.Now().UnixNano())
+
 	// https://golang.org/pkg/math/rand/#Rand
 	r := rand.New(source)
 
