@@ -3,8 +3,10 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"math/rand"
 	"os"
 	"strings"
+	"time"
 )
 
 // Create a new type of 'deck'
@@ -55,4 +57,20 @@ func newDeckFromFile(filename string) deck {
 
 	s := strings.Split(string(bs), ",")
 	return deck(s)
+}
+
+func (d deck) shuffle() {
+	// https://golang.org/pkg/math/rand/#Source
+	// https://golang.org/pkg/time/#Time.UnixNano
+	source := rand.NewSource(time.Now().UnixNano())
+	// https://golang.org/pkg/math/rand/#Rand
+	r := rand.New(source)
+
+	for i := range d {
+		// https://golang.org/pkg/math/rand/#Rand.Intn
+		newPosition := r.Intn(len(d) - 1)
+
+		// swap
+		d[i], d[newPosition] = d[newPosition], d[i]
+	}
 }

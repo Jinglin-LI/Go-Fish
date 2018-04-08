@@ -38,11 +38,15 @@ func main() {
 
 	// cards.saveToFile("my_cards")
 
-	cards := newDeckFromFile("my_cards")
-	cards.print()
+	// cards := newDeckFromFile("my_cards")
+	// cards.print()
 
-	cards2 := newDeckFromFile("my") // error
-	cards2.print()
+	// cards2 := newDeckFromFile("my") // error
+	// cards2.print()
+
+	cards := newDeck()
+	cards.shuffle()
+	cards.print()
 }
 
 func newCard() string {
