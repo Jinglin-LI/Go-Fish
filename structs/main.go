@@ -37,12 +37,16 @@ func main() {
 
 	fmt.Printf("%+v", jim)
 
-	jim.updateName("jimmy") // did not change the jim's firstname to "jimmy"
+	// &variable: Give me the memory address of the value this variable is pointing at
+	jimPointer := &jim
+	jimPointer.updateName("jimmy") // change the firstname of Jim
 	jim.print()
 }
 
-func (p person) updateName(newFirstName string) {
-	p.firstName = newFirstName
+// * before a type is different from the * before a pointer
+func (pointerToPerson *person) updateName(newFirstName string) { // *person: a type of pointer that points to the person
+	// *pointer: Give me the value this memory adress is pointing at
+	(*pointerToPerson).firstName = newFirstName
 }
 
 func (p person) print() {
