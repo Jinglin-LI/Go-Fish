@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func main() {
 	// var card string = "Ace of Spades"
 	//card := "Ace of Spades"
@@ -36,7 +34,9 @@ func main() {
 	// fmt.Println([]byte(greeting))
 
 	cards := newDeck()
-	fmt.Println(cards.toString())
+	// fmt.Println(cards.toString())
+
+	cards.saveToFile("my_cards")
 }
 
 func newCard() string {
