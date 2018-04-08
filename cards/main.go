@@ -33,10 +33,16 @@ func main() {
 	// greeting := "Hi there!"
 	// fmt.Println([]byte(greeting))
 
-	cards := newDeck()
-	// fmt.Println(cards.toString())
+	// cards := newDeck()
+	// // fmt.Println(cards.toString())
 
-	cards.saveToFile("my_cards")
+	// cards.saveToFile("my_cards")
+
+	cards := newDeckFromFile("my_cards")
+	cards.print()
+
+	cards2 := newDeckFromFile("my") // error
+	cards2.print()
 }
 
 func newCard() string {
