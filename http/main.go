@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"net/http"
 	"os"
 )
@@ -14,7 +15,11 @@ func main() {
 	}
 	// fmt.Println(resp)
 
-	bs := make([]byte, 9999)
-	resp.Body.Read(bs)
-	fmt.Println(string(bs))
+	// bs := make([]byte, 9999)
+	// resp.Body.Read(bs)
+	// fmt.Println(string(bs))
+
+	// resp.Body: implements the Redaer interface
+	// os.Stdout: implements the Writer interface
+	io.Copy(os.Stdout, resp.Body)
 }
