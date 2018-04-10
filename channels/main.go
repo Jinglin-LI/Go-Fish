@@ -30,8 +30,13 @@ func main() {
 
 	for l := range c {
 		// pause in the Main Routine
-		time.Sleep(5 * time.Second)
-		go checkLink(l, c)
+		// time.Sleep(5 * time.Second)
+		// go checkLink(l, c)
+
+		go func(link string) { // l vs link, Main Routine vs Child Routine
+			time.Sleep(5 * time.Second)
+			checkLink(link, c)
+		}(l) // argument for the function literal, goes to the memory
 	}
 }
 
